@@ -2,7 +2,7 @@
 /**
  * main - Startng point of any program
  *
- * return: Indicates success execution of a program
+ * Return: Indicates success execution of a program
  */
 
 int main(void)
