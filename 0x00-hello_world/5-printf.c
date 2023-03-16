@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - Start of any program
+ * main - Startng point of any program
  *
  * return: Indicates success execution of a program
  */
