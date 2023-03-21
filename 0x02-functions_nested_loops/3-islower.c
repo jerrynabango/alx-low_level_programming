@@ -2,7 +2,7 @@
 /**
  * _islower - Identify is the character is lowercase
  *
- * c: will be identified
+ * @c: will be identified
  * && - Means and - used when comparing two conditions
  * Return: Identifies if character c is lowercase otherwise it stops
  */
