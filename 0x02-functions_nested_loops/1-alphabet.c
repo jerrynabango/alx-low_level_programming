@@ -2,7 +2,7 @@
 /**
  * main - Indicates the start of the program
  *
- * print_alphabet - Writes all alphabets in lowercase
+ * print_alphabet - Prints the alphabets in lowercase
  */
 
 void print_alphabet(void)
