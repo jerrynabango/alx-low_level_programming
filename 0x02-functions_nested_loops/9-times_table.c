@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * tmes_tbale - It displays the nine times table
+ * times_table - It displays the nine times table
  *
  * Return: Indicates successful execution
  */
