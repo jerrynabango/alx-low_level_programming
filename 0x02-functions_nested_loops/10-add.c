@@ -2,7 +2,7 @@
 /**
  * main - Start of the program
  *
- * add - Sums up the two integers
+ * add - Adds up the two integers
  *
  * @a: integer 1
  *
