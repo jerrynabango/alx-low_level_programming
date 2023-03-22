@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_times_tables - Displays the n times table
+ * print_times_table - Displays the n times table
  *
  * @n: number of times table
  *
@@ -14,7 +14,7 @@ void print_times_table(int n)
 	{
 		for (a = 0 ; a <= n ; a++)
 		{
-			_putchar(48);
+			_putchar(48)i;
 				for (b = 1 ; b <= n ; b++)
 				{
 					c = a * b;
