@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main -  computes sum of all the multiples of 3 or 5 below 1024
+ * main -  computes sum of all the multiples
  *
  * Return: Indicates successful execution
  */
@@ -8,11 +8,11 @@ int main(void)
 {
 	int j, z;
 
-	for (j = 1 ; a < 1024 ; a++)
+	for (j = 1 ; j < 1024 ; j++)
 	{
-		if ((j % 3) == 0 || (j % 5) ==)
+		if ((j % 3) == 0 || (j % 5) == 0)
 			z += j;
 	}
 	printf("%d\n", z);
 	return (0);
-i}
+}
