@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - Prints 100 Fibonnaci numbers
+ * main - Prints the the first 98 Fibonacci numbers
  *
  * Returns: Indicates successful execution
  */
