@@ -2,7 +2,6 @@
 #define LARGEST 10000000000
 /**
  * main - Start of the program
- *
  * Description: Prints 98 Fibonacci numbers, starting with 1 and 2
  *
  * Returns: Indicates successful execution
