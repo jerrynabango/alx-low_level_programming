@@ -1,51 +1,40 @@
 #include <stdio.h>
+#define LARGEST 10000000000
 /**
- * main - Prints the the first 98 Fibonacci numbers
+ * main - Start of the program
+ *
+ * Description: Prints 98 Fibonacci numbers, starting with 1 and 2
  *
  * Returns: Indicates successful execution
  */
 
 int main(void)
 {
-	int a, grade, grade2;
-	long int num1, num2, fib, fib2, num11, num22;
+	unsigned long int fr1 = 0, bk1 = 1, fr2 = 0, bk2 = 2;
+	unsigned long int hold1, hold2, hold3;
+	int count;
 
-	num1 = 1;
-	num2 = 2;
-	grade =  grade2 = 1;
-	printf("%ld, %ld", num1, num2);
-	for (a = 0; a < 96; a++)
+	printf("%lu, %lu, ", bk1, bk2);
+	for (count = 2; count < 98; count++)
 	{
-		if (boolean)
+		if (bk1 + bk2 > LARGEST || fr2 > 0 || fr1 > 0)
 		{
-			fib = num1 + num2;
-			printf(", %ld", fn);
-			num1 = num2;
-			num2 = fib;
+			hold1 = (bk1 + bk2) / LARGEST;
+			hold2 = (bk1 + bk2) % LARGEST;
+			hold3 = fr1 + fr2 + hold1;
+			fr1 = fr2, fr2 = hold3;
+			bk1 = bk2, bk2 = hold2;
+			printf("%lu%010lu", fr2, bk2);
 		}
 		else
 		{
-			if (grade2)
-			{
-				num11 = num1 % 1000000000;
-				num22 = num2 % 1000000000;
-				num1 = num1 / 1000000000;
-				num2 = num2 / 1000000000;
-				grade2 = 0;
-			}
-			fib2 = (num11 + num22);
-			fib = num1 + num2 + (fib2 / 1000000000);
-			printf(", %ld", fib);
-			printf("%ld", fib2 % 1000000000);
-			num1 = num2;
-			num11 = num22;
-			num2 = fib;
-			num22 = (fib2 % 1000000000);
+			hold2 = bk1 + bk2;
+			bk1 = bk2, bk2 = hold2;
+			printf("%lu", bk2);
 		}
-		if (((num1 + num2) < 0) && grade == 1)
-			grade = 0;
+		if (count != 97)
+			printf(", ");
 	}
 	printf("\n");
 	return (0);
 }
-
