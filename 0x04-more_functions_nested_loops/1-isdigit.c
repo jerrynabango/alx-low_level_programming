@@ -1,7 +1,9 @@
 #include "main.h"
 
 /**
- * _isdigit - function that checks for digit btn 0 & 9
+ * _isdigit - checks for digit btn 0 & 9
+ *
+ * @c: The number
  *
  * Return: Indicates successful execution if certain condition is met
  */
