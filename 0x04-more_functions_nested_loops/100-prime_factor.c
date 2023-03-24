@@ -8,14 +8,14 @@
  */
 int main(void)
 {
-	unsigned long int i, n = 612852475143;
+	unsigned long int a, b = 612852475143;
 
-	for (i = 3; i < 782849; i = i + 2)
+	for (i = 3; a < 782849; a = a + 2)
 	{
-		while ((n % i == 0) && (n != i))
-			n = n / i;
+		while ((b % a == 0) && (b != a))
+			b = b / a;
 	}
-	printf("%lu\n", n);
+	printf("%lu\n", b);
 	return (0);
 }
 
