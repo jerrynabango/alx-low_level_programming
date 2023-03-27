@@ -9,11 +9,11 @@
 int main(void)
 {
 	int a, b, sum;
-	int password[20];
+	int password[50];
 	sum = 0;
 	srand(time(NULL));
 
-	for (a = 0 ; a < 20; a++)
+	for (a = 0 ; a < 50; a++)
 	{
 		password[a] = rand() % 20;
 		sum += (password[a] + '0');
