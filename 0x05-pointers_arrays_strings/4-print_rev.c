@@ -3,6 +3,8 @@
  * print_rev - Function that prints string in reverse
  *
  * @s: Parameter
+ *
+ * Return: Empty
  */
 void print_rev(char *s)
 {
