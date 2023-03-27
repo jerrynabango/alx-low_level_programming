@@ -15,10 +15,10 @@ int main(void)
 
 	for (a = 0 ; a < 20; a++)
 	{
-		password[a] = rand() % 10;
+		password[a] = rand() % 20;
 		sum += (password[a] + '0');
 		putchar(password[a] + '0');
-		if (2772 - sum - '0' < 10)
+		if (2772 - sum - '0' < 20)
 		{
 			b = 2772 - sum - '0';
 			sum += b;
