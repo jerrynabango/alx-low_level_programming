@@ -9,16 +9,16 @@
 int main(void)
 {
 	int a, b, sum;
-	int password[100];
+	int password[20];
 	sum = 0;
 	srand(time(NULL));
 
-	for (a = 0 ; a < 100; a++)
+	for (a = 0 ; a < 20; a++)
 	{
-		password[a] = rand() % 50;
+		password[a] = rand() % 10;
 		sum += (password[a] + '0');
 		putchar(password[a] + '0');
-		if (2772 - sum - '0' < 50)
+		if (2772 - sum - '0' < 10)
 		{
 			b = 2772 - sum - '0';
 			sum += b;
