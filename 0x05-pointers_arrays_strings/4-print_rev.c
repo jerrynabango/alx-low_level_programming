@@ -4,16 +4,19 @@
  *
  * @s: Parameter
  *
- * Return: Empty
+ * Return: String
  */
 void print_rev(char *s)
 {
 	int a;
-	int count = 0;
+	int c = 0;
 
-	for (a = 0 ; s[a] != 0 ; a++)
-		count++;
-	for (a = count ; a >= 0 ; a--)
+	while (s[c] != '\0')
+		c++;
+
+	for (a = c - 1 ; a >= 0 ; a--)
+	{
 		_putchar(s[a]);
+	}
 	_putchar('\n');
 }
