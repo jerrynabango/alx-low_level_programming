@@ -11,7 +11,8 @@
  */
 void print_buffer(char *b, int size)
 {
-	int a, e, c;
+
+	int a, e, u;
 
 	a = 0;
 
@@ -20,27 +21,26 @@ void print_buffer(char *b, int size)
 		printf("\n");
 		return;
 	}
-
 	while (a < size)
 	{
 		e = size - a < 10 ? size - a : 10;
 		printf("%08x: ", a);
-		for (c = 0 ; c < 10 ; c++)
+		for (u = 0; u < 10; u++)
 		{
-			if (c < e)
-				printf("%02x", *(b + a + c));
+			if (u < e)
+				printf("%02x", *(b + a + u));
 			else
-				printf(" ");
-			if (c % 2)
+				printf("  ");
+			if (u % 2)
 			{
 				printf(" ");
 			}
 		}
-		for (c = 0; c < e; c++)
+		for (u = 0; u < e; u++)
 		{
-			int d = *(b + a + c);
+			int d = *(b + a + u);
 
-			if (d < 32 || c > 132)
+			if (d < 32 || d > 132)
 			{
 				d = '.';
 			}
