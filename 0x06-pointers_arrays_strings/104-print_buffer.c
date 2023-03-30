@@ -1,16 +1,17 @@
 #include "main.h"
+#include <stdio.h>
 /**
- * print_buffer -  function that prints a buffer.
+ * print_buffer - function that prints a buffer.
  *
- * @size: The buffer size
+ * @b: Printed buffer
  *
- * @b: The printed buffer
+ * @size: Buffer size
  *
  * Return: Empty
  */
 void print_buffer(char *b, int size)
 {
-	int a, b, c;
+	int a, e, c;
 
 	a = 0;
 
@@ -22,12 +23,11 @@ void print_buffer(char *b, int size)
 
 	while (a < size)
 	{
-		b = size - a < 10 ? size - a : 10;
-		printf("%08x:", a);
-
+		e = size - a < 10 ? size - a : 10;
+		printf("%08x : ", a);
 		for (c = 0 ; c < 10 ; c++)
 		{
-			if (c < b)
+			if (c < e)
 				printf("%02x", *(b + a + c));
 			else
 				printf(" ");
@@ -36,11 +36,11 @@ void print_buffer(char *b, int size)
 				printf(" ");
 			}
 		}
-		for (c = 0 ; c < b ; c++)
+		for (c = 0; c < e; c++)
 		{
 			int d = *(b + a + c);
 
-			if (e < 32 || e > 132)
+			if (d < 32 || c > 132)
 			{
 				d = '.';
 			}
@@ -50,3 +50,4 @@ void print_buffer(char *b, int size)
 		a += 10;
 	}
 }
+
