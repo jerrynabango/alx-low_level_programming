@@ -1,9 +1,5 @@
 #include <stdio.h>
-/**
- * main - Start of the program
- *
- * Return: Indicates successful execution
- */
+
 int main(void)
 {
 	int n;
