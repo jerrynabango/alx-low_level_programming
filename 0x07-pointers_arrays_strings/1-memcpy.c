@@ -4,21 +4,22 @@
  *
  * @dest: Indicates the destination of address
  *
- * @src: Indicates the memory
+ * @src: Indicates the bytes
  *
  * @n: Indicates the bytes from memory area
  *
- * Return: Indicates the memory area coied from the function
+ * Return: Indicates the pointer to dest
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	unsigned int i;
-	i = 0;
+	unsigned int a;
 
-	while (i < n)
+	a = 0;
+
+	while (a < n)
 	{
-		dest[i] = src[i];
-		i++;
+		dest[a] = src[a];
+		a++;
 	}
 	return (dest);
 }
