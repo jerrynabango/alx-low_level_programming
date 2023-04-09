@@ -12,14 +12,20 @@
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int string;
+	int copied;
 
-	string = 0;
+	copied = 0;
 
-	while (string < n && src[string] != '\0')
+	while (copied < n && src[copied] != '\0')
 	{
-		dest[string] = src[string];
-		string;
+		dest[copied] = src[copied];
+		copied++;
 	}
+	while (copied < n)
+	{
+		dest[copied] = '\0';
+		copied++;
+	}
+
 	return (dest);
 }

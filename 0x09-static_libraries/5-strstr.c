@@ -18,12 +18,10 @@ char *_strstr(char *haystack, char *needle)
 		while (*strn1 == *strn2 && *strn2 != '\0')
 		{
 			strn1++;
-			strn2;
+			strn2++;
 		}
 		if (*strn2 == '\0')
-		{
 			return (haystack);
-		}
-		return (0);
 	}
+		return (0);
 }

@@ -10,30 +10,28 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int a;
+	unsigned int sub1;
 
-	int b;
+	int sub2;
 
-	a = 0;
+	sub1 = 0;
 
 	while (*s)
 	{
-		for (b = 0 ; accept[b] ; b++)
+		for (sub2 = 0 ; accept[sub2] ; sub2++)
 		{
-			if (*s == accept[a])
+			if (*s == accept[sub2])
 			{
-				a++;
+				sub1++;
 
 				break;
 			}
-			else if (accept[b + 1] == '\0')
-			{
-				return (a);
-			}
+			else if (accept[sub2 + 1] == '\0')
+				return (sub1);
+		}
 			s++;
 		}
-		return (a);
-	}
+		return (sub1);
 }
 
 

@@ -20,9 +20,7 @@ char *_strchr(char *s, char c)
 	for (; s[letter] >= '\0' ; letter++)
 	{
 		if (s[letter] == c)
-		{
 			return (&s[letter]);
-		}
-		return (0);
 	}
+		return (0);
 }
