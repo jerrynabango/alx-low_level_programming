@@ -9,7 +9,7 @@
  *
  * Return: Dsiplays the minimum n.o of coins
  */
-int main(int argc, char *argv)
+int main(int argc, char *argv[])
 {
 	int amount1, amount2, change;
 
@@ -21,7 +21,7 @@ int main(int argc, char *argv)
 
 		return (1);
 	}
-	amount1 = atoi(argv[]);
+	amount1 = atoi(argv[1]);
 	change = 0;
 
 	if (amount1 < 0)
@@ -31,7 +31,7 @@ int main(int argc, char *argv)
 	}
 	for (amount2 = 0; amount2 < 5 && amount1 >= 0 ; amount2++)
 	{
-		while (amount1 = min_coins[amount2])
+		while (amount1 >= min_coins[amount2])
 		{
 			change++;
 
