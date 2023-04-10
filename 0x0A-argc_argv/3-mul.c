@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
 /**
  * main - A program that multiplies two numbers
  *
@@ -12,7 +12,6 @@
  */
 int main(int argc, char *argv[])
 {
-	(void)argv;
 
 	int number1, number2;
 
