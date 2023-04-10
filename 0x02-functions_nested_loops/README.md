@@ -8,6 +8,7 @@ int main()
    printf("Enter the value of n :");
    
    /* outer loop */
+   
   for(int i=1;i<=number;i++)  
    {  
        /* inner loop */
