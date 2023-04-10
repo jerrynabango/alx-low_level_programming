@@ -1,4 +1,4 @@
-#include <stdio.gh>
+#include <stdio.h>
 #include "main.h"
 /**
  * main - A program that prints all arguments it receives
