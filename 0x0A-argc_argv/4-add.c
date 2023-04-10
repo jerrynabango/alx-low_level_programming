@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 /**
  * check_num - Identifies the number
  *
@@ -15,7 +17,7 @@ int check_num(char *str)
 
 	while (check < strlen(str))
 	{
-		if (!isdigit(str[count]))
+		if (!isdigit(str[check]))
 		{
 			return (0);
 		}
@@ -42,9 +44,9 @@ int main(int argc, char *argv[])
 
 	while (check < argc)
 	{
-		if (check_num(argv[count]))
+		if (check_num(argv[check]))
 		{
-			converter = atoi(argv[count]);
+			converter = atoi(argv[check]);
 			addition += converter;
 		}
 		else
