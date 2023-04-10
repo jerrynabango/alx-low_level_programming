@@ -1,6 +1,6 @@
 argc & argv
-@argc(argument count: Indicates the array size of the argv(argument vector). || An integer that indicates how many arguments were entered on the command line.
-@argv: Indicates the array size of argc. || An array of pointers to arrays of character objects.
+# argc(argument count: Indicates the array size of the argv(argument vector). || An integer that indicates how many arguments were entered on the command line.
+# argv: Indicates the array size of argc. || An array of pointers to arrays of character objects.
 #Declaration -  
               
               #include <stdio.h>
