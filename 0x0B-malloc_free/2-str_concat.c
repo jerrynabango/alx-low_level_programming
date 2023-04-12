@@ -17,9 +17,13 @@ char *str_concat(char *s1, char *s2)
 	string3 = string4 = 0;
 
 	if (s1 == NULL)
+	{
 		s1 = "";
+	}
 	if (s2 == NULL)
+	{
 		s2 = "";
+	}
 	for (string1 = 0 ; s1[string1] != '\0' ; string1++)
 		;
 
@@ -37,9 +41,13 @@ char *str_concat(char *s1, char *s2)
 	while (string3 < (string1 + string2 + 1))
 	{
 		if (string3 < string1)
+		{
 			concatenate[string3] = s1[string3];
+		}
 		else
+		{
 			concatenate[string3] = s2[string4++];
+		}
 		string3++;
 	}
 	return (concatenate);
