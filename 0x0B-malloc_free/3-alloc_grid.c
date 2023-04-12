@@ -13,7 +13,7 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int **array, grid1, grid2;
+	int **value, grid1, grid2;
 
 	if (height < 1)
 	{
@@ -24,9 +24,9 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	}
 
-	array = malloc(sizeof(*array) * width);
+	value = malloc(sizeof(*value) * width);
 
-	if (array == NULL)
+	if (value == NULL)
 	{
 		return (NULL);
 	}
@@ -34,23 +34,23 @@ int **alloc_grid(int width, int height)
 
 	while (grid1 < height)
 	{
-		array[grid1] = malloc(sizeof(**array) * width);
+		value[grid1] = malloc(sizeof(**value) * width);
 
-		if (array[grid1] == NULL)
+		if (value[grid1] == NULL)
 		{
 			for (grid1-- ; grid1 >= 0; grid1--)
-				free(array[grid1]);
-			free(array);
+				free(value[grid1]);
+			free(value);
 
 			return (NULL);
 		}
 		grid2 = 0;
 		while (grid2 < width)
 		{
-			array[grid1][grid2] = 0;
+			value[grid1][grid2] = 0;
 			grid2++;
 		}
 		grid1++;
 	}
-	return (array);
+	return (value);
 }
