@@ -17,12 +17,18 @@ int **alloc_grid(int width, int height)
 	int **pointa, value1, value2;
 
 	if (height < 1)
+	{
 		return (NULL);
+	}
 	if (width < 1)
+	{
 		return (NULL);
+	}
 	pointa = malloc(sizeof(*pointa) * height);
 	if (pointa == NULL)
+	{
 		return (NULL);
+	}
 
 	value1 = 0;
 	while (value1 < height)
@@ -31,7 +37,9 @@ int **alloc_grid(int width, int height)
 		if (pointa[value1] == NULL)
 		{
 			for (value1-- ; value1 >= 0 ; value1--)
+			{
 				free(pointa[value1]);
+			}
 			free(pointa);
 			return (NULL);
 		}
