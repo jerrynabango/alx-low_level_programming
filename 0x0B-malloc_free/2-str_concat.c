@@ -37,17 +37,17 @@ char *str_concat(char *s1, char *s2)
 	concatenate = (char *)malloc(sizeof(char) * (string5 + 1));
 
 	if (concatenate == NULL)
-	{
+
 		return (NULL);
-	}
+
 	for (string1 = 0 ; string1 < string3 ; string1++)
-	{
+
 		concatenate[string1] = s1[string1];
-	}
+
 	for (string2 = 0 ; string2 < string4 ; string1++, string2++)
-	{
+
 		concatenate[string1] = s2[string2];
-	}
+
 	concatenate[string5] = '\0';
 	return (concatenate);
 }
