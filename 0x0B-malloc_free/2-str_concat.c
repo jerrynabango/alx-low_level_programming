@@ -20,22 +20,16 @@ char *str_concat(char *s1, char *s2)
 	{
 		string1 = 0;
 		while (s1[string1++] != '\0')
-
 			string3++;
-
 	}
 	if (s2 != NULL)
 	{
 		string1 = 0;
 		while (s2[string1++] != '\0')
-
 			string4++;
-
 	}
 	string5 = string3 + string1;
-
 	concatenate = (char *)malloc(sizeof(char) * (string5 + 1));
-
 	if (concatenate == NULL)
 
 		return (NULL);
@@ -43,7 +37,6 @@ char *str_concat(char *s1, char *s2)
 	for (string1 = 0 ; string1 < string3 ; string1++)
 
 		concatenate[string1] = s1[string1];
-
 	for (string2 = 0 ; string2 < string4 ; string1++, string2++)
 
 		concatenate[string1] = s2[string2];
