@@ -16,20 +16,20 @@ int **alloc_grid(int width, int height)
 	int **value, grid1, grid2;
 
 	if (height < 1)
-	{
+
 		return (NULL);
-	}
+
 	if (width < 1)
-	{
+
 		return (NULL);
-	}
+
 
 	value = malloc(sizeof(*value) * width);
 
 	if (value == NULL)
-	{
+
 		return (NULL);
-	}
+
 	grid1 = 0;
 
 	while (grid1 < height)
