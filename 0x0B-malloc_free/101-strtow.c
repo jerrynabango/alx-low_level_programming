@@ -68,10 +68,13 @@ char **strtow(char *str)
 				strn2 = (char *)malloc(sizeof(char) * (wrd5 + 1));
 
 				if (strn2 == NULL)
+				{
 					return (NULL);
-
+				}
 				while (wrd6 < wrd7)
+				{
 					*strn2++ = str[wrd6++];
+				}
 				*strn2 = '\0';
 				strn1[wrd2] = strn2 - wrd5;
 
@@ -81,7 +84,9 @@ char **strtow(char *str)
 			}
 		}
 		else if (wrd5++ == 0)
+		{
 			wrd6 = wrd1;
+		}
 	}
 	strn1[wrd2] = NULL;
 
