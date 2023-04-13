@@ -11,13 +11,13 @@
  */
 void *malloc_checked(unsigned int b)
 {
-	int *ptr;
+	int *allocate;
 
-	ptr = malloc(b);
+	allocate = malloc(b);
 
-	if (ptr == NULL)
+	if (allocate == NULL)
 	{
 		exit(98);
 	}
-	return (ptr);
+	return (allocate);
 }
