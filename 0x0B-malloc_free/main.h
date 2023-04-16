@@ -8,4 +8,6 @@ void free_grid(int **grid, int height);
 int _putchar(char c);
 char *argstostr(int ac, char **av);
 char **strtow(char *str);
+void word(char **, char *, int, int, int);
+void words(char **, char *);
 #endif

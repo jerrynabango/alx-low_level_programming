@@ -1,94 +1,109 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * count_word - A function that prints number of words 
+ * strtow - A function that splits a string into words
  *
  * @s: Indicates a string
  *
- * Return: Displays the number of words
+ * Return: Displays a pointer to an array of strings
  */
-int count_word(char *s)
+char **strtow(char *s)
 {
-	int word1, word2, flag;
+	char **string;
+	int split, split1, split2;
 
-	word2 = 0;
-	flag = 0;
-
-	for (word1 = 0 ; s[word1] != '\0' ; word1++)
+	if (s == NULL || s[0] == '\0' || (s[0] == ' ' && s[1] == '\0'))
 	{
-		if (s[word1] == ' ')
-			flag = 0;
-		else
-			if (flag == 0)
-			{
-				flag = 1;
-
-				word2++;
-			}
+		return (NULL);
 	}
-	return (word2);
-}
+	split = split1 = split2 = 0;
 
+	while (s[split])
+	{
+		if (split2 == 0 && s[split] != ' ')
+		{
+			split2 = split;
+		}
+		if (split > 0 && s[split] == ' ' && s[split - 1] != ' ')
+		{
+			split1 = 0;
+			split2++;
+		}
+		split++;
+	}
+	split2 += split1 == 1 ?  1 : 0;
+	if (split2 == 0)
+	{
+		return (NULL);
+	}
+	string = (char **)malloc(sizeof(char *) * (split2 + 1));
+	if (string == NULL)
+	{
+		return (NULL);
+	}
+	words(string, s);
+	string[split2] = NULL;
+	return (string);
+
+}
 /**
- * strtow - A function that splits a string into words
+ * words - A function that prints arrray with words
  *
- * @str: Indicates the splitted string
+ * @c: Indicates the string
  *
- * Return: Displays the splitted words
+ * @s: Indicates the string
  */
-char **strtow(char *str)
+void words(char **c, char *s)
 {
-	int wrd1, wrd2, wrd3, wrd4, wrd5, wrd6, wrd7;
-	char **strn1, *strn2;
+	int word1, word2, word3, word4;
 
-	wrd2 = 0;
-	wrd3 = 0;
-	wrd5 = 0;
+	word1 = word2 = word3 = 0;
 
-	while (*(str + wrd3))
-		wrd3++;
-	wrd4 = count_word(str);
-
-	if (wrd4 == 0)
-		return (NULL);
-
-	strn1 = (char **)malloc(sizeof(char *) * (wrd4 + 1));
-
-	if (strn1 == NULL)
-		return (NULL);
-
-	for (wrd1 = 0; wrd1 <= wrd3; wrd1++)
+	while (s[word1])
 	{
-		if (str[wrd1] == ' ' || str[wrd1] == '\0')
+		if (word3 == 0 && s[word1] != ' ')
 		{
-			if (wrd5)
-			{
-				wrd6 = wrd1;
-
-				strn2 = (char *)malloc(sizeof(char) * (wrd5 + 1));
-
-				if (strn2 == NULL)
-				{
-					return (NULL);
-				}
-				while (wrd6 < wrd7)
-				{
-					*strn2++ = str[wrd6++];
-				}
-				*strn2 = '\0';
-				strn1[wrd2] = strn2 - wrd5;
-
-				wrd2++;
-
-				wrd5 = 0;
-			}
+			word4 = word1;
+			word3 = 1;
 		}
-		else if (wrd5++ == 0)
+		if (word1 > 0 && s[word1] == ' ' && s[word1 - 1] != ' ')
 		{
-			wrd6 = wrd1;
+			word(c, s, word4, word1, word2);
+			word3 = 0;
+			word2++;
 		}
+		word1++;
 	}
-	strn1[wrd2] = NULL;
-
-	return (strn1);
+	if (word4 == 1)
+	{
+		word(c, s, word3, word1, word2);
+	}
 }
+/**
+ * word - A fucntion that creates a word
+ *
+ * @c: Indicates the string
+ *
+ * @s: Indicates the string
+ *
+ * @split1: Indicates the start position of the word
+ *
+ * @split2: Indicates the end position of the word
+ *
+ * @split3: Indicates the index
+ */
+void word(char **c, char *s, int split1, int split2, int split3)
+{
+	int wrd1, wrd2;
+
+	wrd1 = split2 - split1;
+	c[split3] = (char *)malloc(sizeof(char) * (wrd1 + 1));
+
+			for (wrd2 = 0 ; split1 < split2; split1++, wrd2++)
+			{
+
+				c[split3][wrd2] = s[split1];
+			}
+			c[split3][wrd2] = '\0';
+}
+
