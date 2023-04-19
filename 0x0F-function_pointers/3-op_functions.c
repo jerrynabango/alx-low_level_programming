@@ -1,4 +1,6 @@
 #include "3-calc.h"
+#include <string.h>
+#include <stdlib.h>
 
 /**
  * op_add - A fucntion that returns the sum

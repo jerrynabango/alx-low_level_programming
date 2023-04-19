@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 	{
 		printf("Error\n");
 
-		exit(98);
+		exit(99);
 	}
 	printf("%d\n", arithmetic(atoi(argv[1]), atoi(argv[3])));
 
