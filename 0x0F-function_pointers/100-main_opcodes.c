@@ -1,49 +1,48 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
- * print_opcodes - print the opcodes of this program
- * @a: address of the main function
- * @n: number of bytes to print
+ * main - A function that prints the opcodes of it's own
  *
- * Return: void
- */
-void print_opcodes(char *a, int n)
-{
-	int i;
-
-	for (i = 0; i < n; i++)
-	{
-		printf("%.2hhx", a[i]);
-		if (i < n - 1)
-			printf(" ");
-	}
-	printf("\n");
-
-}
-
-/**
- * main - prints the opcodes of its own main function
- * @argc: number of arguments passed to the function
- * @argv: array of pointers to arguments
+ * @argc: Indicates the size of a argv array
  *
- * Return: always O
+ * @argv: Indicatyes the array of size argc
+ *
+ * Return: Displays the printed opcodes
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int n;
+	char *array;
+	int function, main_func;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
+
 		exit(1);
 	}
-	n = atoi(argv[1]);
-	if (n < 0)
+
+	function = atoi(argv[1]);
+
+	if (function < 0)
 	{
 		printf("Error\n");
+
 		exit(2);
 	}
-	print_opcodes((char *)&main, n);
+
+	array = (char *)main;
+
+	for (main_func = 0 ; main_func < function ; main_func++)
+	{
+		if (main_func == function - 1)
+		{
+			printf("%02hhx\n", array[main_func]);
+
+			break;
+		}
+
+		printf("%02hhx ", array[main_func]);
+	}
 	return (0);
 }
