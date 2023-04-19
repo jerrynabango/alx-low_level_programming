@@ -1,73 +1,64 @@
 #include "3-calc.h"
-#include <string.h>
-#include <stdlib.h>
+
+int op_add(int a, int b);
+int op_sub(int a, int b);
+int op_mul(int a, int b);
+int op_div(int a, int b);
+int op_mod(int a, int b);
 
 /**
- * op_add - A fucntion that returns the sum
+ * op_add - Returns the sum of two numbers.
+ * @a: The first number.
+ * @b: The second number.
  *
- * @a: Indicates the first value
- *
- * @b: Indicates the second value
- *
- * Return: Displays the sum
+ * Return: The sum of a and b.
  */
 int op_add(int a, int b)
 {
 	return (a + b);
 }
-
 /**
- * op_sub - A function that returns the difference
+ * op_sub - Returns the difference of two numbers.
+ * @a: The first number.
+ * @b: The second number.
  *
- * @a: Indicates the first value
- *
- * @b: Indicates the second value
- *
- * Return: Displays the difference
+ * Return: The difference of a and b.
  */
 int op_sub(int a, int b)
 {
 	return (a - b);
 }
-
 /**
- * op_mul - A function that returns the product
+ * op_mul - Returns the product of two numbers.
+ * @a: The first number.
+ * @b: The second number.
  *
- * @a: Indicates the first value
- *
- * @b: Indicates the second value
- *
- * Return: Displays the product
+ * Return: The product of a and b.
  */
 int op_mul(int a, int b)
 {
 	return (a * b);
 }
-
 /**
- * op_div - A fucntion that returns the division
+ * op_div - Returns the division of two numbers.
+ * @a: The first number.
+ * @b: The second number.
  *
- * @a: Indicates the first value
- *
- * @b: Indicates the second value
- *
- * Return: Displays the division
+ * Return: The quotient of a and b.
  */
 int op_div(int a, int b)
 {
 	return (a / b);
 }
-
 /**
- * op_mod - A fucntion that reurns the remainder of the division
+ * op_mod - Returns the remainder of the division of two numbers.
+ * @a: The first number.
+ * @b: The second number.
  *
- * @a: Indicates the first value
- *
- * @b: Indicates the second value
- *
- * Return: Displays the remainder of the division
+ * Return: The remainder of the division of a by b.
  */
 int op_mod(int a, int b)
 {
 	return (a % b);
 }
+
