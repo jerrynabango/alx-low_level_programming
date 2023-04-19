@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 	{
 		printf("Error\n");
 
-		exit(98);
+		exit(99);
 	}
 
 	if ((*operator == '/' && b == 0) || (*operator == '%' && b == 0))
