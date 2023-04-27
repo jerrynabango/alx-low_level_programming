@@ -1,9 +1,16 @@
-global 	main
-extern 	printf
+extern printf
+section .text
+global main
 main:
-mov edi, format
-xor eax, eax
+
+mov rax, 0
+mov rsi, msg
+mov rdi, fmt
+push rbp
 call printf
-mov eax, 0
+pop rbp
+mov rax, 0
 ret
-format: db "Hello, Holberton\n",0
+section .data
+msg:db 'Hello, Holberton', 0
+fmt: db '%s', 10, 0
