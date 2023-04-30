@@ -43,13 +43,13 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	if (idx == 0)
 	{
-		*head = node;
 		node->next = *head;
+		*head = node;
 
 		return (node);
 	}
-	node->next = list->next;
-	list->next = node;
 
+	list->next = node;
+	list->next = node;
 	return (node);
 }
