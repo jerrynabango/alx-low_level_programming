@@ -1,41 +1,89 @@
 #include "lists.h"
 
 /**
- * free_listint_safe - frees a linked list
- * @h: pointer to the first node in the linked list
+ * link - A function that links list
  *
- * Return: number of elements in the freed list
+ * @node: Indicates the pointer
+ *
+ * @list: Indicates the list
+ *
+ * @temp: Indicates the node size
+ *
+ * Return: Indicates the list
+ */
+listint_t **link(listint_t *temp, listint_t **node, size_t list)
+{
+	size_t list1;
+
+	listint_t **safe;
+
+	safe = malloc(list * sizeof(listint_t *));
+
+	if (safe == NULL)
+	{
+		free(node);
+
+		exit(98);
+	}
+
+	for (list1 = 0; list1 < list - 1; list1++)
+	{
+		safe[list1] = node[list1];
+	}
+
+	safe[list1] = temp;
+
+	free(node);
+
+	return (safe);
+}
+
+/**
+ * free_listint_safe - A function that frees a list
+ *
+ * @h: Indicates the pointer
+ *
+ * Return: Displays the freed list
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t len = 0;
-	int diff;
-	listint_t *temp;
+	int safe;
+	listint_t *node;
+	size_t list;
+
+	list = 0;
 
 	if (!h || !*h)
 		return (0);
 
 	while (*h)
 	{
-		diff = *h - (*h)->next;
-		if (diff > 0)
+		safe = *h - (*h)->next;
+
+		if (safe > 0)
 		{
-			temp = (*h)->next;
+			node = (*h)->next;
+
 			free(*h);
-			*h = temp;
-			len++;
+
+			*h = node;
+
+			list++;
 		}
+
 		else
 		{
 			free(*h);
+
 			*h = NULL;
-			len++;
+
+			list++;
+
 			break;
 		}
 	}
 
 	*h = NULL;
 
-	return (len);
+	return (list);
 }
-
