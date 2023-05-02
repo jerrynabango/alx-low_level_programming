@@ -23,9 +23,8 @@ size_t print_listint_safe(const listint_t *head)
 		list++;
 		if (node && node->next)
 			node = (node->next)->next;
-
 		else
-		node = NULL;
+			node = NULL;
 
 		safe = safe->next;
 
