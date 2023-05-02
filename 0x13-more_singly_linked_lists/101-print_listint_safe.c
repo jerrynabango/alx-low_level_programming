@@ -1,62 +1,86 @@
+#include <stdio.h>
 #include "lists.h"
 #include <stdlib.h>
-#include <stdio.h>
-
 /**
- * _r - reallocates memory for an array of pointers
- * to the nodes in a linked list
- * @list: the old list to append
- * @size: size of the new list (always one more than the old list)
- * @new: new node to add to the list
+ * listint_print - A function to safe list
  *
- * Return: pointer to the new list
+ * @safe1: Indicates the pointer
+ *
+ * Return: Displays the list
  */
-const listint_t **_r(const listint_t **list, size_t size, const listint_t *new)
+size_t listint_print(const listint_t *safe1)
 {
-	const listint_t **newlist;
-	size_t i;
+	size_t temp;
+	const listint_t *node, *list;
 
-	newlist = malloc(size * sizeof(listint_t *));
-	if (newlist == NULL)
+	temp = 1;
+
+	if (safe1 == NULL || safe1->next == NULL)
+		return (0);
+
+	node = safe1->next;
+	list = (safe1->next)->next;
+
+	while (list)
 	{
-		free(list);
-		exit(98);
+		if (node == list)
+		{
+			node = safe1;
+			while (node != list)
+			{
+				temp++;
+				node = node->next;
+				list = list->next;
+			}
+			node = node->next;
+
+			while (node != list)
+			{
+				temp++;
+				node = node->next;
+			}
+
+			return (temp);
+		}
+		node = node->next;
+		list = (list->next)->next;
 	}
-	for (i = 0; i < size - 1; i++)
-		newlist[i] = list[i];
-	newlist[i] = new;
-	free(list);
-	return (newlist);
+
+	return (0);
 }
 
 /**
- * print_listint_safe - prints a listint_t linked list.
- * @head: pointer to the start of the list
+ * print_listint_safe - A function that prints list
  *
- * Return: the number of nodes in the list
+ * @head: Indciates the pointer to the listint_t
+ *
+ * Return: Displays the list
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t i, num = 0;
-	const listint_t **list = NULL;
+	long int list;
+	size_t safe;
 
-	while (head != NULL)
+	safe = 0;
+
+	while (head)
 	{
-		for (i = 0; i < num; i++)
-		{
-			if (head == list[i])
-			{
-				printf("-> [%p] %d\n", (void *)head, head->n);
-				free(list);
-				return (num);
-			}
-		}
-		num++;
-		list = _r(list, num, head);
-		printf("[%p] %d\n", (void *)head, head->n);
-		head = head->next;
-	}
-	free(list);
-	return (num);
-}
+		list = head - head->next;
 
+		safe++;
+
+		printf("[%p] %d\n", (void *)head, head->n);
+
+		if (list > 0)
+			head = head->next;
+
+		else
+		{
+			printf("-> [%p] %d\n", (void *)head->next, head->next->n);
+
+			break;
+		}
+	}
+
+	return (safe);
+}
