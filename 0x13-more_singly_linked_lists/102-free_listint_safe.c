@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * free_listint_safe - A function that frees a list
@@ -16,8 +17,9 @@ size_t free_listint_safe(listint_t **h)
 	list = 0;
 
 	if (h == NULL)
+	{
 		return (0);
-
+	}
 	while (*h != NULL)
 	{
 		safe = *h - (*h)->next;
