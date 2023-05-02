@@ -1,39 +1,51 @@
 #include "lists.h"
 
 /**
- * free_listint_safe - frees a listint_t list.
- * @h: pointer to head
+ * free_listint_safe - A function that frees a list
  *
- * Return: size of freed list
+ * @h: Indicates the pointer
+ *
+ * Return: Displays the freed list size
  */
-
 size_t free_listint_safe(listint_t **h)
 {
-	size_t size = 0;
-	int mem_diff;
-	listint_t *temp;
+	int safe;
+	listint_t *node;
+	size_t list;
+
+	list = 0;
 
 	if (h == NULL)
 		return (0);
+
 	while (*h != NULL)
 	{
-		mem_diff = *h - (*h)->next;
-		if (mem_diff > 0)
+		safe = *h - (*h)->next;
+
+		if (safe > 0)
 		{
-			temp = (*h)->next;
+			node = (*h)->next;
+
 			free(*h);
-			*h = temp;
-			size++;
+
+			*h = node;
+
+			list++;
 		}
+
 		else
 		{
 			free(*h);
+
 			*h = NULL;
-			size++;
+
+			list++;
+
 			break;
 		}
 	}
-	*h = NULL;
-	return (size);
-}
 
+	*h = NULL;
+
+	return (list);
+}

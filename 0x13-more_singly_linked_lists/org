@@ -1,51 +1,98 @@
 #include "lists.h"
 
+size_t print_listint_list(const listint_t *head);
+
 /**
- * free_listint_safe - A function that frees a list
+ * print_listint_list - A function to check the list
  *
- * @h: Indicates the pointer
+ * @head: Indicates the pointer to the listint_t
  *
- * Return: Displays the freed list
+ * Return: Displays the printed list
  */
-size_t free_listint_safe(listint_t **h)
+size_t print_listint_list(const listint_t *head)
 {
-	int safe;
-	listint_t *node;
-	size_t list;
+	size_t list = 1;
 
-	list = 0;
+	const listint_t *node, *temp;
 
-	if (h == NULL)
-		return (0);
-
-	while (*h != NULL)
+	if (head == NULL || head->next == NULL)
 	{
-		safe = *h - (*h)->next;
+		return (0);
+	}
 
-		if (safe > 0)
+	node = head->next;
+
+	temp = (head->next)->next;
+
+	while (temp)
+	{
+		if (node == temp)
 		{
-			node = (*h)->next;
+			node = head;
 
-			free(*h);
-
-			*h = node;
-
+		while (node != temp)
+		{
 			list++;
+			node = node->next;
+			temp = temp->next;
 		}
 
-		else
+		node = node->next;
+
+		while (node != temp)
 		{
-			free(*h);
-
-			*h = NULL;
-
 			list++;
 
-			break;
+			node = node->next;
+		}
+
+		return (list);
+	}
+
+	node = node->next;
+
+	temp = (temp->next)->next;
+	}
+
+	return (0);
+}
+
+/**
+ * print_listint_safe - A function that prints linked list
+ *
+ * @head: Indicates the pointer to the listint
+ *
+ * Return: Displays the listint
+ */
+size_t print_listint_safe(const listint_t *head)
+{
+	size_t list, temp;
+
+	list = print_listint_list(head);
+
+	temp = 0;
+
+	if (list == 0)
+	{
+		for (; head != NULL; list++)
+		{
+			printf("[%p] %d\n", (void *)head, head->n);
+
+			head = head->next;
 		}
 	}
 
-	*h = NULL;
+	else
+	{
+		for (temp = 0; temp < list; temp++)
+		{
+			printf("[%p] %d\n", (void *)head, head->n);
+
+			head = head->next;
+		}
+
+		printf("->[%p] %d\n", (void *)head, head->n);
+	}
 
 	return (list);
 }

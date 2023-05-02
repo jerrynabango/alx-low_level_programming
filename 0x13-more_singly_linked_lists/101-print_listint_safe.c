@@ -1,98 +1,52 @@
 #include "lists.h"
 
-size_t print_listint_list(const listint_t *head);
-
 /**
- * print_listint_list - A function to check the list
+ * print_listint_safe - ..
  *
- * @head: Indicates the pointer to the listint_t
+ * @head: Indicates the pointer
  *
- * Return: Displays the printed list
- */
-size_t print_listint_list(const listint_t *head)
-{
-	size_t list = 1;
-
-	const listint_t *node, *temp;
-
-	if (head == NULL || head->next == NULL)
-	{
-		return (0);
-	}
-
-	node = head->next;
-
-	temp = (head->next)->next;
-
-	while (temp)
-	{
-		if (node == temp)
-		{
-			node = head;
-
-		while (node != temp)
-		{
-			list++;
-			node = node->next;
-			temp = temp->next;
-		}
-
-		node = node->next;
-
-		while (node != temp)
-		{
-			list++;
-
-			node = node->next;
-		}
-
-		return (list);
-	}
-
-	node = node->next;
-
-	temp = (temp->next)->next;
-	}
-
-	return (0);
-}
-
-/**
- * print_listint_safe - A function that prints linked list
- *
- * @head: Indicates the pointer to the listint
- *
- * Return: Displays the listint
+ * Return: Displays the list
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t list, temp;
+	int list;
+	const listint_t *node = head, *safe = head;
 
-	list = print_listint_list(head);
+	list = 0;
 
-	temp = 0;
+	if (head == NULL)
+		exit(98);
 
-	if (list == 0)
+	while (safe != NULL)
 	{
-		for (; head != NULL; list++)
-		{
-			printf("[%p] %d\n", (void *)head, head->n);
+		printf("[%p] %d\n", (void *)safe, safe->n);
+		list++;
+		if (node && node->next)
+			node = (node->next)->next;
 
-			head = head->next;
+		else
+		node = NULL;
+
+		safe = safe->next;
+
+		if ((node == safe) && node != NULL)
+		{
+			safe = head;
+
+			while (safe != node)
+			{
+				printf("[%p] %d\n", (void *)node, node->n);
+
+				list++;
+
+				safe = safe->next;
+
+				node = node->next;
+			}
+
+			printf("-> [%p] %d\n", (void *)node, node->n);
+			break;
 		}
 	}
-
-	else
-	{
-		for (temp = 0; temp < list; temp++)
-		{
-			printf("[%p] %d\n", (void *)head, head->n);
-
-			head = head->next;
-		}
-
-		printf("->[%p] %d\n", (void *)head, head->n);
-	}
-
 	return (list);
 }
