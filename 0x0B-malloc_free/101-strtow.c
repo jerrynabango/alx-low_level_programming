@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include "main.h"
 
-void word(char **c, char *s, int split1, int split2, int spli3);
-void words(char **c, char *s);
 /**
  * strtow - A function that splits a string into words
  *
