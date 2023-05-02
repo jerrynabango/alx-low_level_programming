@@ -1,53 +1,39 @@
-#include <stdio.h>
 #include "lists.h"
-#include <stdlib.h>
+
 /**
- * print_listint_safe - ..
+ * print_listint_safe - ...
  *
- * @head: Indicates the pointer
+ * @head: Indciates the pointer to the listint_t
  *
  * Return: Displays the list
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	int list;
-	const listint_t *node = head, *safe = head;
+	long int list;
+	size_t safe;
 
-	list = 0;
+	safe = 0;
 
-	if (head == NULL)
+	while (head)
 	{
-		exit(98);
-	}
-	while (safe != NULL)
-	{
-		printf("[%p] %d\n", (void *)safe, safe->n);
-		list++;
-		if (node && node->next)
-			node = (node->next)->next;
-		else
-			node = NULL;
+		list = head - head->next;
 
-		safe = safe->next;
+		safe++;
 
-		if ((node == safe) && node != NULL)
+		printf("[%p] %d\n", (void *)head, head->n);
+
+		if (list > 0)
 		{
-			safe = head;
+			head = head->next;
+		}
 
-			while (safe != node)
-			{
-				printf("[%p] %d\n", (void *)node, node->n);
+		else
+		{
+			printf("-> [%p] %d\n", (void *)head->next, head->next->n);
 
-				list++;
-
-				safe = safe->next;
-
-				node = node->next;
-			}
-
-			printf("-> [%p] %d\n", (void *)node, node->n);
 			break;
 		}
 	}
-	return (list);
+
+	return (safe);
 }
