@@ -1,7 +1,8 @@
+#include <stdio.h>
 #include "lists.h"
 
 /**
- * print_listint_safe - ...
+ * print_listint_safe - A function that prints list
  *
  * @head: Indciates the pointer to the listint_t
  *
@@ -23,9 +24,7 @@ size_t print_listint_safe(const listint_t *head)
 		printf("[%p] %d\n", (void *)head, head->n);
 
 		if (list > 0)
-		{
 			head = head->next;
-		}
 
 		else
 		{
