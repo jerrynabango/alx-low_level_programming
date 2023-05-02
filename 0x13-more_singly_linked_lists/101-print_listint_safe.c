@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "lists.h"
 
 /**
@@ -15,8 +16,9 @@ size_t print_listint_safe(const listint_t *head)
 	list = 0;
 
 	if (head == NULL)
+	{
 		exit(98);
-
+	}
 	while (safe != NULL)
 	{
 		printf("[%p] %d\n", (void *)safe, safe->n);

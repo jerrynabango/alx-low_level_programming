@@ -1,5 +1,5 @@
-#include "lists.h"
 #include <stdio.h>
+#include "lists.h"
 
 /**
  * free_listint_safe - A function that frees a list
