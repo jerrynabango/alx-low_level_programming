@@ -14,17 +14,15 @@ char **strtow(char *s)
 	int split, split1, split2;
 
 	if (s == NULL || s[0] == '\0' || (s[0] == ' ' && s[1] == '\0'))
-	{
 		return (NULL);
-	}
+
 	split = split1 = split2 = 0;
 
 	while (s[split])
 	{
 		if (split2 == 0 && s[split] != ' ')
-		{
 			split2 = split;
-		}
+
 		if (split > 0 && s[split] == ' ' && s[split - 1] != ' ')
 		{
 			split1 = 0;
@@ -34,14 +32,13 @@ char **strtow(char *s)
 	}
 	split2 += split1 == 1 ?  1 : 0;
 	if (split2 == 0)
-	{
 		return (NULL);
-	}
+
 	string = (char **)malloc(sizeof(char *) * (split2 + 1));
 	if (string == NULL)
-	{
+
 		return (NULL);
-	}
+
 	words(string, s);
 	string[split2] = NULL;
 	return (string);
@@ -100,10 +97,8 @@ void word(char **c, char *s, int split1, int split2, int split3)
 	wrd1 = split2 - split1;
 	c[split3] = (char *)malloc(sizeof(char) * (wrd1 + 1));
 	for (wrd2 = 0 ; split1 < split2; split1++, wrd2++)
-	{
-
 		c[split3][wrd2] = s[split1];
-	}
+
 	c[split3][wrd2] = '\0';
 }
 
