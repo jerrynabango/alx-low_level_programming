@@ -1,52 +1,41 @@
-#include <stdio.h>
 #include "lists.h"
-#include <stdlib.h>
+
 /**
- * listint_print - A function to safe list
+ * listint_t vers - A function to safe list
  *
- * @safe1: Indicates the pointer
+ * @node: Indicates the pointer
+ *
+ * @temp: Indicates the pointer
+ *
+ * @list: Indicates the list
  *
  * Return: Displays the list
  */
-size_t listint_print(const listint_t *safe1)
+const listint_t **vers(const listint_t **temp, size_t list,
+		const listint_t *node)
 {
-	size_t temp;
-	const listint_t *node, *list;
+	size_t ls;
+	const listint_t **node1;
 
-	temp = 1;
+	node1 = malloc(list * sizeof(listint_t *));
 
-	if (safe1 == NULL || safe1->next == NULL)
-		return (0);
-
-	node = safe1->next;
-	list = (safe1->next)->next;
-
-	while (list)
+	if (node1 == NULL)
 	{
-		if (node == list)
-		{
-			node = safe1;
-			while (node != list)
-			{
-				temp++;
-				node = node->next;
-				list = list->next;
-			}
-			node = node->next;
+		free(temp);
 
-			while (node != list)
-			{
-				temp++;
-				node = node->next;
-			}
-
-			return (temp);
-		}
-		node = node->next;
-		list = (list->next)->next;
+		exit(98);
 	}
 
-	return (0);
+	for (ls = 0; ls < list - 1; ls++)
+	{
+		node1[ls] = temp[ls];
+	}
+
+	node1[ls] = node;
+
+	free(temp);
+
+	return (node1);
 }
 
 /**
@@ -58,29 +47,36 @@ size_t listint_print(const listint_t *safe1)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	long int list;
-	size_t safe;
+	size_t ls, a;
+	const listint_t **tem = NULL;
 
-	safe = 0;
+	a = 0;
 
-	while (head)
+	while (head != NULL)
 	{
-		list = head - head->next;
+		for (ls = 0; ls < a; ls++)
+		{
+			if (head == tem[ls])
+			{
+				printf("-> [%p] %d\n", (void *)head, head->n);
 
-		safe++;
+				free(tem);
+
+				return (a);
+			}
+		}
+
+		a++;
+
+		tem = vers(tem, a, head);
 
 		printf("[%p] %d\n", (void *)head, head->n);
 
-		if (list > 0)
-			head = head->next;
-
-		else
-		{
-			printf("-> [%p] %d\n", (void *)head->next, head->next->n);
-
-			break;
-		}
+		head = head->next;
 	}
 
-	return (safe);
+	free(tem);
+
+	return (a);
 }
+
