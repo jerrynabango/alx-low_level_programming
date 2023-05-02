@@ -1,5 +1,6 @@
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
+
 /**
  * strtow - A function that splits a string into words
  *
@@ -98,12 +99,11 @@ void word(char **c, char *s, int split1, int split2, int split3)
 
 	wrd1 = split2 - split1;
 	c[split3] = (char *)malloc(sizeof(char) * (wrd1 + 1));
+	for (wrd2 = 0 ; split1 < split2; split1++, wrd2++)
+	{
 
-			for (wrd2 = 0 ; split1 < split2; split1++, wrd2++)
-			{
-
-				c[split3][wrd2] = s[split1];
-			}
-			c[split3][wrd2] = '\0';
+		c[split3][wrd2] = s[split1];
+	}
+	c[split3][wrd2] = '\0';
 }
 
