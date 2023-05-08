@@ -13,6 +13,8 @@ int create_file(const char *filename, char *text_content)
 {
 	int file1, file2, file3;
 
+	file3 = 0;
+
 	if (filename == NULL)
 	{
 		return (-1);
