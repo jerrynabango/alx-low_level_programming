@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 {
 	ssize_t file1, file2;
 	char buffer[1024];
-	int file, to, from;
+	int file, file_to, file_from;
 
 	if (argc != 3)
 	{
@@ -47,33 +47,33 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	from = open(argv[1], O_RDONLY);
-	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
-	cp_content(from, to, argv);
+	file_from = open(argv[1], O_RDONLY);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	cp_content(file_from, file_to, argv);
 
 	file1 = 1024;
 	while (file1 == 1024)
 	{
-		file1 = read(from, buffer, 1024);
+		file1 = read(file_from, buffer, 1024);
 		if (file1 == -1)
 			cp_content(-1, 0, argv);
-		file2 = write(to, buffer, file1);
+		file2 = write(file_to, buffer, file1);
 		if (file2 == -1)
 			cp_content(0, -1, argv);
 
 	}
 
-	file = close(from);
+	file = close(file_from);
 	if (file == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
 
-	file = close(to);
+	file = close(file_to);
 	if (file == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
 	return (0);
