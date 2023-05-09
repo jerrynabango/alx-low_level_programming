@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 {
 	ssize_t file1, file2;
 	char buffer[1024];
-	int file_close, to, from;
+	int file, to, from;
 
 	if (argc != 3)
 	{
@@ -50,8 +50,8 @@ int main(int argc, char *argv[])
 	from = open(argv[1], O_RDONLY);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	cp_content(from, to, argv);
-	file1 = 1024;
 
+	file1 = 1024;
 	while (file1 == 1024)
 	{
 		file1 = read(from, buffer, 1024);
@@ -63,15 +63,15 @@ int main(int argc, char *argv[])
 
 	}
 
-	file_close = close(from);
-	if (file_close == -1)
+	file = close(from);
+	if (file == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from);
 		exit(100);
 	}
 
-	file_close = close(to);
-	if (file_close == -1)
+	file = close(to);
+	if (file == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from);
 		exit(100);
