@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+
 /**
  * cp_content - .....
  *
@@ -21,7 +22,7 @@ void cp_content(int to, int from, char *argv[])
 	if (to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(98);
+		exit(99);
 	}
 }
 
