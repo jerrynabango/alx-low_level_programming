@@ -7,19 +7,21 @@
  *
  * @argv: Indicates the arguments passe<F3>d<F4> to a program
  *
- * @to: Indicates where file is taken.
+ * @file_to: Indicates where file is taken.
  *
- * @from: Indicates the destination where file was before.
+ * @file_from: Indicates the destination where file was before.
+ *
+ * Return: Empty
  */
-void cp_content(int from, int to, char *argv[])
+void cp_content(int file_from, int file_to, char *argv[])
 {
-	if (from == -1)
+	if (file_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read frtgom file %s\n", argv[1]);
 		exit(98);
 	}
 
-	if (to == -1)
+	if (file_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
