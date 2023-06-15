@@ -3,11 +3,13 @@
 #include <stdlib.h>
 
 /**
- * main - generate a key depending on a username for crackme5
- * @argc: numer of arguments passed
- * @argv: arguments passed to main
+ * main - A function for the crackme5 keygen function
  *
- * Return: 0 on success, 1 on error
+ * @argc: Indicates the number of arguments to the function to be called
+ *
+ * @argv: Indicates the arguments to the function
+ *
+ * Return: Displays successful execution of the function
  */
 int main(int argc, char *argv[])
 {
