@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdlib.h>
 
 /**
  * main - A function for the crackme5 keygen function
