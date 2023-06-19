@@ -1,45 +1,36 @@
 #include "main.h"
 /**
- * _atoi - function that convert a string to an integer
+ * _atoi - A function that converts str to integer
  *
- * @s: String to be coverted to an integer
+ * @s: Indicates a string literal
  *
- * Return: Displays the converted string
+ * Return: Displays the integer
  */
-
 int _atoi(char *s)
 {
-	int a, b, c, d, e, f;
+	int str1, str2;
+	unsigned int str3;
 
-	a = 0;
-	b = 0;
-	c = 0;
-	d = 0;
-	e = 0;
-	f = 0;
+	str1 = 1;
+	str2 = 0;
+	str3 = 0;
 
-	while (s[d] != '\0')
-		d++;
-
-	while (a < d && e == 0)
+	while (!(s[str2] <= '9' && s[str2] >= '0') && s[str2] != '\0')
 	{
-		if (s[a] == '-')
-			b++;
-		if (s[a] >= '0' && s[a] <= '9')
+		if (s[str2] == '-')
 		{
-			f = s[a] - '0';
-			if (b % 2)
-				f = -f;
-			c = c * 10 + f;
-			e = 1;
-
-			if (s[a + 1] < '0' || s[a + 1] > '9')
-				break;
-			e = 0;
+			str1 *= -1;
 		}
-		a++;
+		str2++;
 	}
-	if (e == 0)
-		return (0);
-	return (c);
+	while (s[str2] <= '9' && (s[str2] >= '0' && s[str2] != '\0'))
+	{
+		str3 = (str3 * 10) + (s[str2] - '0');
+		str2++;
+	}
+	str3 *= str1;
+	return (str1);
 }
+
+
+

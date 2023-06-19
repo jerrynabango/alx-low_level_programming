@@ -1,16 +1,21 @@
 #include "main.h"
-
 /**
- * _isupper - uppercase letters
- * @c: char to check
+ * _isupper - A function that prints the Uppercase of all letters
  *
- * Return: 0 or 1
+ * @c: Indicates the characters
+ *
+ * Return: Displays the letters in Uppercase
  */
 
 int _isupper(int c)
 {
 	if (c >= 'A' && c <= 'Z')
+	{
 		return (1);
+	}
 	else
+	{
 		return (0);
+	}
 }
+
