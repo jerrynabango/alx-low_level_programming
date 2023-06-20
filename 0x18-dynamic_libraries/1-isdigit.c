@@ -1,20 +1,12 @@
 #include "main.h"
-
 /**
- * _isdigit - checks for digit btn 0 & 9
+ * _isdigit - A function that prints digits btn 0 and 9
  *
- * @c: The number
+ * @c: Indicates the digits to be printed
  *
- * Return: Indicates successful execution if certain condition is met
+ * Return: Displays the digits btn 0 and 9
  */
 int _isdigit(int c)
 {
-	if (c >= 48 && c <= 57)
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	return (c >= '0' && c <= '9');
 }

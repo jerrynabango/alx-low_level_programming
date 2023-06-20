@@ -1,26 +1,24 @@
 #include "main.h"
-
 /**
- * _memset - A function that fills memory with a constant byte
+ * _memset - A function that prints a block of memory with a particular value
  *
- * @b: Indicates the constant byte
+ * @s: Indicates a pointer
  *
- * @s: Indicates the memory adrress
+ * @b: Indicates a character
  *
- * @n: Indicates the bytes of the momory area pointed by s
+ * @n: Indicates a data type that stores values
  *
- * Return: Displays the pointer to the memory area s
+ * Return: Dispalys the block of memory
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int a = 0;
+	int a = 0;
 
-	a = 0;
-
-	while (a < n)
+	for (; n > 0 ; a++)
 	{
 		s[a] = b;
-		a++;
+
+		n--;
 	}
 	return (s);
 }

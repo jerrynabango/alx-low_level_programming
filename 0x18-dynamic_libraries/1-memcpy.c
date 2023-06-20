@@ -1,25 +1,27 @@
 #include "main.h"
 /**
- * _memcpy - Function that copies memory area
+ * _memcpy - A function that copies memory block from one location to another
  *
- * @dest: Indicates the destination of address
+ * @src: Indicates the memory block destination
  *
- * @src: Indicates the bytes
+ * @dest: Indicates memory block storage
  *
- * @n: Indicates the bytes from memory area
+ * @n: Indicates data values storage
  *
- * Return: Indicates the pointer to dest
+ * Return: Displays the memory block copied
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	unsigned int a;
+	int memory1, memory2;
 
-	a = 0;
+	memory1 = 0;
+	memory2 = n;
 
-	while (a < n)
+	for (; memory1 < memory2 ; memory2++)
 	{
-		dest[a] = src[a];
-		a++;
+		dest[memory1] = src[memory1];
+
+		n--;
 	}
 	return (dest);
 }

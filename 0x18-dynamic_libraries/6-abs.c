@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * _abs -  a function that computes the absolute value of an integer.
+ * _abs - A function prints distance btn the number & number line beginning
  *
- * @n: The number to check
+ * @n: Indicates the value to be identified
  *
- * Return: computes the absolute value of an integer
+ * Return: Displays the distance betyween the n.o & n.o line
  */
 int _abs(int n)
 {

@@ -1,35 +1,32 @@
 #include "main.h"
-
 /**
- * _strncat - function that concatenates two strings
+ * _strncat - A function that concantenates sourc and destinatiin string
  *
- * @n: Value length
+ * @dest: Indicates the pointer to the destination array to be copied
  *
- * @dest: Value inserted destination
+ * @src: Indicates the string to be copied
  *
- * @src: VAlue inserted
+ * @n: Indicates the value
  *
- * Return: dest
+ * Return: Displayss the concantenated string
  */
-
 char *_strncat(char *dest, char *src, int n)
 {
-	int a, b;
+	int string1, string2;
 
-	a = 0;
-	b = 0;
+	string1 = 0;
 
-	while (dest[a] != '\0')
+	while (dest[string1] != '\0')
 	{
-		a++;
+		string1++;
 	}
-
-	while (b < n && src[a] != '\0')
+	while (string2 < n && src[string2] != '\0')
 	{
-		dest[a] = src[b];
-		b++;
-		a++;
+		dest[string1] = src[string2];
+
+		string1++, string2++;
 	}
-	dest[a] = '\0';
+	dest[string1] = '\0';
+
 	return (dest);
 }
