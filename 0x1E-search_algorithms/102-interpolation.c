@@ -4,10 +4,12 @@
  * interpolation_search - search for value in sorted array using Interpolation
  *
  * @array: pointer to the first element of the array to search in
- * @size: number of elements in array
- * @value: value to search for
  *
- * Return: Returns index, if value is not present or NULL, it returns -1
+ * @size: number of elements in array
+ *
+ * @value:  value to search for
+ *
+ * Return: Returns index, If value is not present or NULL, it returns -1
  */
 int interpolation_search(int *array, size_t size, int value)
 {
