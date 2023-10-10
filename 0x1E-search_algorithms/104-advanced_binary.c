@@ -15,27 +15,22 @@
  */
 int advanced_binary_recursive(int *array, size_t left, size_t right, int value)
 {
-	size_t algo, recurs;
+	size_t algo;
 
-	while (right >= left)
-	{
-        algo = left + (right - left) / 2;
+	if (right < left)
+		return (-1);
 
-        printf("Searching in array: ");
-        for (recurs = left; recurs < right; recurs++)
-            printf("%d, ", array[recurs]);
-        printf("%d\n", array[right]);
+	printf("Searching in array: ");
+	for (algo = left; algo < right; algo++)
+		printf("%d, ", array[algo]);
+	printf("%d\n", array[algo]);
 
-        if (array[algo] == value && (algo == left || array[algo - 1] != value))
-            return (algo);
-
-        if (array[algo] >= value)
-            right = algo - 1;
-        else
-            left = algo + 1;
-    }
-
-    return (-1);
+	algo = left + (right - left) / 2;
+	if (array[algo] == value && (algo == left || array[algo - 1] != value))
+		return (algo);
+	if (array[algo] >= value)
+		return (advanced_binary_recursive(array, left, algo, value));
+	return (advanced_binary_recursive(array, algo + 1, right, value));
 }
 
 /**
@@ -51,8 +46,8 @@ int advanced_binary_recursive(int *array, size_t left, size_t right, int value)
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-    if (array == NULL || size == 0)
-        return (-1);
+	if (array == NULL || size == 0)
+		return (-1);
 
-    return (advanced_binary_recursive(array, 0, size - 1, value));
+	return (advanced_binary_recursive(array, 0, size - 1, value));
 }
